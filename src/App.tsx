@@ -1,34 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Table } from './components/Table';
+import GlobalStyle from './styles/GlobalStyle';
+
+const data = [
+	{ name: 'Carolina', status: 'feito', nota: '7' },
+	{ name: 'João', status: 'fazendo', nota: '10' },
+	{ name: 'Jurema', status: 'fazendo', nota: '5' },
+	{ name: 'Jacira', status: 'a fazer', nota: '6' },
+	{ name: 'Enzo', status: 'feito', nota: '2' },
+	{ name: 'Davi', status: 'feito', nota: '9' },
+	{ name: 'Carlos', status: 'a fazer', nota: '8' },
+	{ name: 'Camila', status: 'fazendo', nota: '3' },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+	return (
+		<>
+			<GlobalStyle />
+			<Table
+				isResponsive={true}
+				head={['Aluno', 'Satus', 'Nota']}
+				dataLabel={['Aluno', 'Satus', 'Nota']}
+				body={data.map((e) => [e.name, e.status, e.nota])}
+			/>
+		</>
+	);
 }
 
-export default App
+export default App;
